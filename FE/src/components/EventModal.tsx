@@ -49,7 +49,7 @@ const EventModal: React.FC<EventModalProps> = ({ open, handleClose, event, handl
 
     const handleSubmit = async () => {
         const newEvent = { title, start, end, description, priority, color };
-        if (event._id) {
+        if (event?._id) {
             const response = await axios.put(`/events/${event._id}`, newEvent);
             dispatch(updateEvent(response.data));
         } else {
